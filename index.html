@@ -1,0 +1,406 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><title>The Home &amp; Its People — AHDH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: one quiet column like the printed booklet; each section opens with its small caps eyebrow + serif title. */
+:root{--paper:#fbfaf8;--ink:#141413;--mut:#77736c;--line:#e3e0da;--soft:#f1efea;--rec:#c2381c;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:Jost,-apple-system,"Helvetica Neue",Arial,"Geeza Pro","Noto Sans Arabic",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.wrap{max-width:680px;margin:0 auto;padding:28px max(18px,env(safe-area-inset-right)) 120px max(18px,env(safe-area-inset-left))}
+.logo{height:64px;mix-blend-mode:multiply;display:block}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);font-weight:500}
+.hero{margin:34px 0 8px}.hero .eyebrow{font-style:italic;font-family:var(--serif);font-size:16px;letter-spacing:.12em}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,9vw,56px);line-height:1.02;margin:6px 0 18px;text-wrap:balance}
+.intro p{margin:0 0 12px;color:#3a3833;max-width:62ch}
+.how{border-left:2px solid var(--ink);padding:4px 0 4px 16px;margin:22px 0;font-size:15px;color:#3a3833}
+.how b{display:block;font-weight:600;color:var(--ink)}
+.voice{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--soft);border-radius:14px;padding:14px 16px;margin:18px 0 6px;font-size:15px}
+.voice .mi{width:34px;height:34px;flex:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:20px;overflow:hidden;margin-inline-start:auto}
+.seg button{font:inherit;font-size:13px;font-weight:600;border:0;background:transparent;padding:5px 12px;cursor:pointer;color:var(--ink)}
+.seg button.on{background:var(--ink);color:var(--paper)}
+section{margin-top:54px}
+section h2{font-family:var(--serif);font-weight:500;font-size:32px;margin:4px 0 4px;line-height:1.1}
+section .note{color:var(--mut);font-size:14px;margin:0 0 6px;max-width:60ch}
+.q{padding:18px 0 4px;border-top:1px solid var(--line);margin-top:14px}
+.q label.t{display:flex;gap:10px;font-weight:500;margin-bottom:10px}
+.q .n{font-family:var(--serif);font-style:italic;color:var(--mut);font-size:18px;min-width:24px;line-height:1.35}
+.box{position:relative}
+textarea,input.l{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 56px 12px 14px}
+textarea{min-height:92px;resize:vertical}
+textarea:focus,input.l:focus{outline:none;border-color:var(--ink)}
+.mic{position:absolute;right:8px;top:8px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper);cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.mic:hover{border-color:var(--ink)}.mic:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.mic svg{width:18px;height:18px}
+.mic.on{background:var(--rec);border-color:var(--rec);color:#fff;animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(194,56,28,.45)}70%{box-shadow:0 0 0 12px rgba(194,56,28,0)}100%{box-shadow:0 0 0 0 rgba(194,56,28,0)}}
+@media(prefers-reduced-motion:reduce){.mic.on{animation:none}}
+.live{font-size:13px;color:var(--rec);min-height:0;margin-top:6px}
+.nomic .mic,.nomic .voice .ok{display:none}.voice .no{display:none}.nomic .voice .no{display:inline}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:520px){.chips{grid-template-columns:1fr}}
+.chip{display:flex;gap:10px;align-items:center;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;font-size:15px}
+.chip input{width:18px;height:18px;accent-color:var(--ink);flex:none}.chip:has(input:checked){border-color:var(--ink);background:var(--soft)}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row .chip{flex:1;min-width:110px;justify-content:center}
+.err{background:#fdf0ec;color:#8f2410;border:1px solid #f1c6b9;padding:12px 14px;border-radius:12px;font-weight:500;margin:20px 0}
+.send{display:block;width:100%;background:var(--ink);color:var(--paper);border:0;border-radius:14px;padding:18px;font:inherit;font-weight:600;font-size:17px;margin-top:40px;cursor:pointer}
+.send:focus-visible{outline:3px solid var(--rec);outline-offset:3px}
+.send[disabled]{opacity:.55;cursor:progress}
+.fine{font-size:13px;color:var(--mut);text-align:center;margin-top:10px}
+.prog{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);padding:10px max(18px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));font-size:13px;color:var(--mut);text-align:center}
+.prog i{display:block;height:3px;background:var(--line);border-radius:3px;margin:6px auto 0;max-width:680px;overflow:hidden}.prog i b{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+/* Arabic: right-to-left layout and Arabic typefaces */
+html[lang=ar]{--serif:Amiri,"Cormorant Garamond",Georgia,serif;--sans:"IBM Plex Sans Arabic","Geeza Pro","Noto Sans Arabic",Jost,Arial,sans-serif}
+html[lang=ar] .eyebrow{letter-spacing:0;font-size:13px}
+html[lang=ar] .hero .eyebrow{font-style:normal;letter-spacing:0;font-size:17px}
+html[lang=ar] h1{line-height:1.25;font-weight:700}
+html[lang=ar] section h2{font-weight:700;line-height:1.35}
+html[lang=ar] body{line-height:1.75}
+[dir=rtl] textarea,[dir=rtl] input.l{padding:12px 14px 12px 56px}
+[dir=rtl] .mic{right:auto;left:8px}
+[dir=rtl] .how{border-left:0;border-right:2px solid var(--ink);padding:4px 16px 4px 0}
+.seg button[data-lang=ar-EG]{font-family:"IBM Plex Sans Arabic",var(--sans)}
+.done{display:none}.sent .done{display:block}.sent #f,.sent .prog,.sent .voice,.sent .how,.sent .intro{display:none}
+</style></head><body>
+<div class="wrap">
+<img class="logo" src="data:image/jpeg;base64,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" alt="Amr Helmy Design House">
+<div class="hero"><div class="eyebrow" data-t="clinic">Interior design clinic</div><h1 data-t="h1">The Home &amp; Its People</h1></div>
+<div class="intro">
+<p class="eyebrow" style="margin-bottom:10px" data-t="intake">Client discovery &amp; villa renovation intake</p>
+<p data-t="intro1">A private design conversation to help us understand the people, rituals, memories and ambitions that will shape your new home.</p>
+<p data-t="intro2">Allow about 25–35 minutes. Answer in a few words or a sentence, and skip any question that feels too personal. There are no right answers. Ideally, each principal resident completes the reflective questions separately.</p>
+</div>
+<div class="voice"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>
+<span class="ok" data-t="voiceok">Prefer to talk? Tap the microphone in any answer and speak — your words are written for you. Tap again to stop.</span>
+<span class="no" data-t="voiceno">Voice answers need Chrome or Safari. You can still type every answer here.</span>
+<span class="seg ok" role="group" aria-label="Language / اللغة"><button type="button" data-lang="en-US" class="on">English</button><button type="button" data-lang="ar-EG">عربي</button></span></div>
+<div class="how"><b data-t="howt">How we will use your answers</b><span data-t="how">They inform our design conversation, whole-villa narrative, planning priorities and aesthetic direction. They are not a psychological test or medical assessment. We will share our design interpretation with you before detailed work begins.</span></div>
+
+<form method="post" id="f" action="#" novalidate>
+<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+
+<section id="profile"><div class="eyebrow">01</div>
+<h2><span data-t="sec_profile">Project profile</span></h2>
+<div class="q">
+<label class="t" for="client_name"><span class="n"></span><span data-t="q_client_name">Your name</span></label>
+<div class="box"><input class="l" id="client_name" name="client_name" dir="auto" required autocomplete="name"><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="location"><span class="n"></span><span data-t="q_location">Project name / villa location</span></label>
+<div class="box"><input class="l" id="location" name="location" dir="auto" ><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="contact"><span class="n"></span><span data-t="q_contact">Main contact &amp; preferred communication</span></label>
+<div class="box"><input class="l" id="contact" name="contact" dir="auto" ><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="household"><span class="n"></span><span data-t="q_household">Household members and ages / accessibility requirements</span></label>
+<div class="box"><textarea id="household" name="household" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="floors"><span class="n"></span><span data-t="q_floors">Floors / outdoor areas included</span></label>
+<div class="box"><input class="l" id="floors" name="floors" dir="auto" ><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="dates"><span class="n"></span><span data-t="q_dates">Expected start date / significant deadlines</span></label>
+<div class="box"><input class="l" id="dates" name="dates" dir="auto" ><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="approvals"><span class="n"></span><span data-t="q_approvals">Who will give final design approvals?</span></label>
+<div class="box"><input class="l" id="approvals" name="approvals" dir="auto" ><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="identity"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_identity">Identity</span></h2>
+<div class="q">
+<label class="t" for="q01"><span class="n">01</span><span data-t="q_q01">Which room in your current home feels most like you?</span></label>
+<div class="box"><textarea id="q01" name="q01" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q02"><span class="n">02</span><span data-t="q_q02">Which room feels least like you?</span></label>
+<div class="box"><textarea id="q02" name="q02" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q03"><span class="n">03</span><span data-t="q_q03">If your home could describe your personality, what would it say?</span></label>
+<div class="box"><textarea id="q03" name="q03" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q04"><span class="n">04</span><span data-t="q_q04">Is your home more a place to express who you are or to hide from the world?</span></label>
+<div class="box"><textarea id="q04" name="q04" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q05"><span class="n">05</span><span data-t="q_q05">What object in your home represents you most?</span></label>
+<div class="box"><textarea id="q05" name="q05" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="rituals"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_rituals">Behavior &amp; rituals</span></h2>
+<div class="q">
+<label class="t" for="q06"><span class="n">06</span><span data-t="q_q06">Where do you sit when you are stressed?</span></label>
+<div class="box"><textarea id="q06" name="q06" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q07"><span class="n">07</span><span data-t="q_q07">Where do you spend most of your time without planning to?</span></label>
+<div class="box"><textarea id="q07" name="q07" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q08"><span class="n">08</span><span data-t="q_q08">What daily activity feels harder than it should?</span></label>
+<div class="box"><textarea id="q08" name="q08" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q09"><span class="n">09</span><span data-t="q_q09">What part of your home do you avoid?</span></label>
+<div class="box"><textarea id="q09" name="q09" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q10"><span class="n">10</span><span data-t="q_q10">What do you do first when you arrive home?</span></label>
+<div class="box"><textarea id="q10" name="q10" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="memory"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_memory">Memory</span></h2>
+<div class="q">
+<label class="t" for="q11"><span class="n">11</span><span data-t="q_q11">What is the most comfortable home you ever lived in? Why?</span></label>
+<div class="box"><textarea id="q11" name="q11" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q12"><span class="n">12</span><span data-t="q_q12">What is the most uncomfortable home you lived in? Why?</span></label>
+<div class="box"><textarea id="q12" name="q12" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q13"><span class="n">13</span><span data-t="q_q13">What part of your childhood home do you still remember clearly?</span></label>
+<div class="box"><textarea id="q13" name="q13" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q14"><span class="n">14</span><span data-t="q_q14">Is there something from your past homes you miss?</span></label>
+<div class="box"><textarea id="q14" name="q14" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q15"><span class="n">15</span><span data-t="q_q15">What smell reminds you of home?</span></label>
+<div class="box"><textarea id="q15" name="q15" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="order"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_order">Order &amp; control</span></h2>
+<div class="q">
+<label class="t" for="q16"><span class="n">16</span><span data-t="q_q16">Do you like seeing everything or hiding things away?</span></label>
+<div class="box"><textarea id="q16" name="q16" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q17"><span class="n">17</span><span data-t="q_q17">How do you organize your belongings?</span></label>
+<div class="box"><textarea id="q17" name="q17" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q18"><span class="n">18</span><span data-t="q_q18">Does visual clutter stress you?</span></label>
+<div class="box"><textarea id="q18" name="q18" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q19"><span class="n">19</span><span data-t="q_q19">Do you prefer flexible spaces or defined spaces?</span></label>
+<div class="box"><textarea id="q19" name="q19" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q20"><span class="n">20</span><span data-t="q_q20">Do you like knowing what happens in every room?</span></label>
+<div class="box"><textarea id="q20" name="q20" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="emotional"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_emotional">Emotional environment</span></h2>
+<div class="q">
+<label class="t" for="q21"><span class="n">21</span><span data-t="q_q21">What makes a house feel stressful to you?</span></label>
+<div class="box"><textarea id="q21" name="q21" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q22"><span class="n">22</span><span data-t="q_q22">What makes a house feel peaceful?</span></label>
+<div class="box"><textarea id="q22" name="q22" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q23"><span class="n">23</span><span data-t="q_q23">Do you need time alone daily?</span></label>
+<div class="box"><textarea id="q23" name="q23" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q24"><span class="n">24</span><span data-t="q_q24">Do unexpected guests stress you?</span></label>
+<div class="box"><textarea id="q24" name="q24" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q25"><span class="n">25</span><span data-t="q_q25">What part of your home makes you proud?</span></label>
+<div class="box"><textarea id="q25" name="q25" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="future"><div class="eyebrow"><span data-t="clinicEb">02 · The design clinic</span></div>
+<h2><span data-t="sec_future">Imagination &amp; future</span></h2>
+<div class="q">
+<label class="t" for="q26"><span class="n">26</span><span data-t="q_q26">If your home were a character, who would it be?</span></label>
+<div class="box"><textarea id="q26" name="q26" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q27"><span class="n">27</span><span data-t="q_q27">If your home were a movie, what genre would it be?</span></label>
+<div class="box"><textarea id="q27" name="q27" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q28"><span class="n">28</span><span data-t="q_q28">If you could remove one feeling from your home, what would it be?</span></label>
+<div class="box"><textarea id="q28" name="q28" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q29"><span class="n">29</span><span data-t="q_q29">If you could add one feeling, what would it be?</span></label>
+<div class="box"><textarea id="q29" name="q29" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="q30"><span class="n">30</span><span data-t="q_q30">How do you want to feel when you wake up?</span></label>
+<div class="box"><textarea id="q30" name="q30" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="household_life"><div class="eyebrow">03</div>
+<h2><span data-t="sec_household_life">Household &amp; everyday life</span></h2><p class="note"><span data-t="note_household_life">Complete together as a household; AHD can explore details in the follow-up interview.</span></p>
+<div class="q">
+<label class="t" for="h1"><span class="n"></span><span data-t="q_h1">What rooms are used by whom, and at what times of day?</span></label>
+<div class="box"><textarea id="h1" name="h1" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="h2"><span class="n"></span><span data-t="q_h2">How often do you entertain? Typical guest count and style of gathering?</span></label>
+<div class="box"><textarea id="h2" name="h2" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="h3"><span class="n"></span><span data-t="q_h3">What everyday routines must the home support (work, prayer, hobbies, pets, children, staff)?</span></label>
+<div class="box"><textarea id="h3" name="h3" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="h4"><span class="n"></span><span data-t="q_h4">What storage problems or physical accessibility needs should the new design solve?</span></label>
+<div class="box"><textarea id="h4" name="h4" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="h5"><span class="n"></span><span data-t="q_h5">Which personal objects, artwork or heirlooms must be incorporated?</span></label>
+<div class="box"><textarea id="h5" name="h5" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section id="scope"><div class="eyebrow">04</div>
+<h2><span data-t="sec_scope">Renovation scope</span></h2><p class="note"><span data-t="note_scope">This is a full strip-out renovation. Mark the areas and works expected to be replaced or changed; technical feasibility is subject to the appointed professionals.</span></p>
+<div class="q">
+<label class="t" for="areas"><span class="n"></span><span data-t="q_areas">Areas and works</span></label>
+<div class="chips"><label class="chip"><input type="checkbox" name="areas" value="Ground floor"> <span data-t="a_0">Ground floor</span></label><label class="chip"><input type="checkbox" name="areas" value="First floor"> <span data-t="a_1">First floor</span></label><label class="chip"><input type="checkbox" name="areas" value="Third level"> <span data-t="a_2">Third level</span></label><label class="chip"><input type="checkbox" name="areas" value="Stairs / circulation"> <span data-t="a_3">Stairs / circulation</span></label><label class="chip"><input type="checkbox" name="areas" value="Landscape / outdoor areas"> <span data-t="a_4">Landscape / outdoor areas</span></label><label class="chip"><input type="checkbox" name="areas" value="Flooring and wall finishes"> <span data-t="a_5">Flooring and wall finishes</span></label><label class="chip"><input type="checkbox" name="areas" value="Ceilings / lighting"> <span data-t="a_6">Ceilings / lighting</span></label><label class="chip"><input type="checkbox" name="areas" value="Kitchen / bathrooms"> <span data-t="a_7">Kitchen / bathrooms</span></label><label class="chip"><input type="checkbox" name="areas" value="Electrical / plumbing / gas"> <span data-t="a_8">Electrical / plumbing / gas</span></label><label class="chip"><input type="checkbox" name="areas" value="Heating / cooling / ventilation"> <span data-t="a_9">Heating / cooling / ventilation</span></label><label class="chip"><input type="checkbox" name="areas" value="Doors / windows"> <span data-t="a_10">Doors / windows</span></label><label class="chip"><input type="checkbox" name="areas" value="Built-in furniture / wardrobes"> <span data-t="a_11">Built-in furniture / wardrobes</span></label></div>
+
+</div><div class="q">
+<label class="t" for="preserve"><span class="n"></span><span data-t="q_preserve">Areas to preserve or relocate, if any</span></label>
+<div class="box"><textarea id="preserve" name="preserve" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="living"><span class="n"></span><span data-t="q_living">Are you living in the property during works?</span></label>
+<div class="row"><label class="chip"><input type="radio" name="living" value="Yes"> <span data-t="l_Yes">Yes</span></label><label class="chip"><input type="radio" name="living" value="No"> <span data-t="l_No">No</span></label><label class="chip"><input type="radio" name="living" value="Undecided"> <span data-t="l_Undecided">Undecided</span></label></div>
+
+</div></section>
+
+<section id="prefs"><div class="eyebrow">05</div>
+<h2><span data-t="sec_prefs">Design &amp; purchasing preferences</span></h2>
+<div class="q">
+<label class="t" for="p1"><span class="n"></span><span data-t="q_p1">Materials or colors you love and dislike</span></label>
+<div class="box"><textarea id="p1" name="p1" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="p2"><span class="n"></span><span data-t="q_p2">Furniture to retain, refurbish, replace or commission from AHD</span></label>
+<div class="box"><textarea id="p2" name="p2" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="p3"><span class="n"></span><span data-t="q_p3">Preferred atmosphere for public spaces versus private spaces</span></label>
+<div class="box"><textarea id="p3" name="p3" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="p4"><span class="n"></span><span data-t="q_p4">Art, collectibles, cultural references or travel influences to consider</span></label>
+<div class="box"><textarea id="p4" name="p4" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div><div class="q">
+<label class="t" for="p5"><span class="n"></span><span data-t="q_p5">Design inspirations / photos / links you would like to share</span></label>
+<div class="box"><textarea id="p5" name="p5" rows="3" dir="auto"></textarea><button type="button" class="mic" aria-label="Answer by voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></button>
+</div><div class="live"></div>
+</div></section>
+
+<section><div class="eyebrow" data-t="nexteb">06 · Next steps</div><h2 data-t="thanks">Thank you for inviting us into your story.</h2>
+<p class="note" data-t="thanksnote">AHDH will review your responses, hold a narrative interview and existing-home assessment, and prepare a whole-villa narrative direction for your approval. Separate technical consultants and your contractor will verify structural, electrical, plumbing, gas and construction requirements.</p></section>
+<div class="err" id="err" hidden></div>
+<button class="send" id="send" type="submit" data-t="send">Send my answers to AHDH</button>
+<p class="fine" data-t="fine">Your answers are kept on this device as you type, so you can close the page and come back.</p>
+</form>
+
+<section class="done" id="done"><div class="eyebrow" data-t="doneeb">Received</div><h2 data-t="doneh">Thank you — your answers are with AHDH.</h2>
+<p class="note" style="color:#3a3833;font-size:16px" data-t="donep">We will review them carefully before our narrative interview and be in touch through your preferred contact to arrange the next conversation.</p></section>
+</div>
+<div class="prog"><span id="pt">0 answered</span><i><b id="pb"></b></i></div>
+<script>
+/* ===== SETTINGS — paste your Google Apps Script web-app URL here ===== */
+var ENDPOINT='https://script.google.com/macros/s/AKfycbzVFfaEaD22g96O4s4W7Eg54isB0NqDfPrFEmoY4qHB4UvjxXtnR3Y1Y5rX3Rwtfvoe/exec';
+/* ===================================================================== */
+var T={"title": ["The Home & Its People — AHDH", "البيت وأهله — AHDH"], "clinic": ["Interior design clinic", "عيادة التصميم الداخلي"], "h1": ["The Home & Its People", "البيت وأهله"], "intake": ["Client discovery & villa renovation intake", "استبيان التعرّف على العميل وتجديد الفيلا"], "intro1": ["A private design conversation to help us understand the people, rituals, memories and ambitions that will shape your new home.", "حوار تصميمي خاص يساعدنا على فهم الأشخاص والعادات والذكريات والطموحات التي ستشكّل بيتك الجديد."], "intro2": ["Allow about 25–35 minutes. Answer in a few words or a sentence, and skip any question that feels too personal. There are no right answers. Ideally, each principal resident completes the reflective questions separately.", "يستغرق الاستبيان نحو ٢٥–٣٥ دقيقة. أجب بكلمات قليلة أو بجملة واحدة، وتخطَّ أي سؤال تشعر أنه شخصي أكثر من اللازم. لا توجد إجابات صحيحة أو خاطئة. ويُفضَّل أن يجيب كل فرد رئيسي من سكان البيت عن الأسئلة التأملية بشكل منفصل."], "voiceok": ["Prefer to talk? Tap the microphone in any answer and speak — your words are written for you. Tap again to stop.", "تفضّل الحديث؟ اضغط على الميكروفون في أي إجابة وتحدّث، وستُكتب كلماتك تلقائيًا. اضغط مرة أخرى للإيقاف."], "voiceno": ["Voice answers need Chrome or Safari. You can still type every answer here.", "الإجابة بالصوت تحتاج إلى متصفح Chrome أو Safari. وما زال بإمكانك كتابة كل الإجابات هنا."], "howt": ["How we will use your answers", "كيف سنستخدم إجاباتك"], "how": ["They inform our design conversation, whole-villa narrative, planning priorities and aesthetic direction. They are not a psychological test or medical assessment. We will share our design interpretation with you before detailed work begins.", "تُثري إجاباتك حوارنا التصميمي، والرؤية السردية للفيلا بأكملها، وأولويات التخطيط، والاتجاه الجمالي. هذا ليس اختبارًا نفسيًا ولا تقييمًا طبيًا، وسنشاركك تفسيرنا التصميمي قبل البدء في الأعمال التفصيلية."], "nexteb": ["06 · Next steps", "06 · الخطوات التالية"], "thanks": ["Thank you for inviting us into your story.", "شكرًا لأنك دعوتنا إلى قصتك."], "thanksnote": ["AHDH will review your responses, hold a narrative interview and existing-home assessment, and prepare a whole-villa narrative direction for your approval. Separate technical consultants and your contractor will verify structural, electrical, plumbing, gas and construction requirements.", "ستراجع AHDH إجاباتك، وتُجري مقابلة سردية وتقييمًا للبيت الحالي، ثم تُعدّ اتجاهًا سرديًا للفيلا بأكملها لاعتماده منك. وسيتحقّق الاستشاريون الفنيون والمقاول الخاص بك من متطلبات الإنشاء والكهرباء والسباكة والغاز والتنفيذ."], "send": ["Send my answers to AHDH", "أرسل إجاباتي إلى AHDH"], "sending": ["Sending…", "جارٍ الإرسال…"], "fine": ["Your answers are kept on this device as you type, so you can close the page and come back.", "تُحفظ إجاباتك على هذا الجهاز أثناء الكتابة، لذا يمكنك إغلاق الصفحة والعودة إليها لاحقًا."], "err": ["We couldn’t send your answers just now. They are still saved on this device — please check your connection and try again.", "تعذّر إرسال إجاباتك الآن. ما زالت محفوظة على هذا الجهاز، يُرجى التحقق من الاتصال بالإنترنت والمحاولة مرة أخرى."], "doneeb": ["Received", "تم الاستلام"], "doneh": ["Thank you — your answers are with AHDH.", "شكرًا لك، وصلت إجاباتك إلى AHDH."], "donep": ["We will review them carefully before our narrative interview and be in touch through your preferred contact to arrange the next conversation.", "سنراجعها بعناية قبل المقابلة السردية، وسنتواصل معك عبر وسيلة التواصل المفضّلة لديك لترتيب الحوار التالي."], "progress": ["{d} of {n} answered", "تمت الإجابة عن {d} من {n}"], "listening": ["Listening… speak now", "… أستمع الآن، تفضّل بالحديث"], "micblocked": ["Microphone blocked — allow it in the browser, or type instead.", "الميكروفون محجوب، اسمح به من إعدادات المتصفح أو اكتب إجابتك."], "nospeech": ["Didn’t hear anything — tap and try again.", "لم نسمع شيئًا، اضغط وحاول مرة أخرى."], "micaria": ["Answer by voice", "الإجابة بالصوت"], "clinicEb": ["02 · The design clinic", "02 · عيادة التصميم"], "q_client_name": ["Your name", "الاسم"], "q_location": ["Project name / villa location", "اسم المشروع / موقع الفيلا"], "q_contact": ["Main contact & preferred communication", "جهة الاتصال الرئيسية ووسيلة التواصل المفضّلة"], "q_household": ["Household members and ages / accessibility requirements", "أفراد الأسرة وأعمارهم / احتياجات سهولة الحركة والوصول"], "q_floors": ["Floors / outdoor areas included", "الطوابق / المساحات الخارجية المشمولة"], "q_dates": ["Expected start date / significant deadlines", "تاريخ البدء المتوقّع / المواعيد النهائية المهمة"], "q_approvals": ["Who will give final design approvals?", "من سيعطي الموافقات النهائية على التصميم؟"], "sec_profile": ["Project profile", "بيانات المشروع"], "q_q01": ["Which room in your current home feels most like you?", "أي غرفة في بيتك الحالي تشبهك أكثر من غيرها؟"], "q_q02": ["Which room feels least like you?", "أي غرفة تشبهك أقل من غيرها؟"], "q_q03": ["If your home could describe your personality, what would it say?", "لو استطاع بيتك أن يصف شخصيتك، فماذا سيقول؟"], "q_q04": ["Is your home more a place to express who you are or to hide from the world?", "هل بيتك مكان للتعبير عن نفسك أكثر، أم ملاذ للاختباء من العالم؟"], "q_q05": ["What object in your home represents you most?", "ما القطعة في بيتك التي تمثّلك أكثر من غيرها؟"], "sec_identity": ["Identity", "الهوية"], "q_q06": ["Where do you sit when you are stressed?", "أين تجلس عندما تكون متوترًا؟"], "q_q07": ["Where do you spend most of your time without planning to?", "أين تقضي معظم وقتك دون أن تخطّط لذلك؟"], "q_q08": ["What daily activity feels harder than it should?", "ما النشاط اليومي الذي يبدو أصعب مما ينبغي؟"], "q_q09": ["What part of your home do you avoid?", "ما الجزء من بيتك الذي تتجنّبه؟"], "q_q10": ["What do you do first when you arrive home?", "ما أول شيء تفعله عند وصولك إلى البيت؟"], "sec_rituals": ["Behavior & rituals", "السلوك والعادات اليومية"], "q_q11": ["What is the most comfortable home you ever lived in? Why?", "ما أكثر بيت شعرت فيه بالراحة؟ ولماذا؟"], "q_q12": ["What is the most uncomfortable home you lived in? Why?", "ما أقل بيت شعرت فيه بالراحة؟ ولماذا؟"], "q_q13": ["What part of your childhood home do you still remember clearly?", "ما الجزء من بيت طفولتك الذي ما زلت تتذكّره بوضوح؟"], "q_q14": ["Is there something from your past homes you miss?", "هل هناك شيء من بيوتك السابقة تفتقده؟"], "q_q15": ["What smell reminds you of home?", "ما الرائحة التي تذكّرك بالبيت؟"], "sec_memory": ["Memory", "الذاكرة"], "q_q16": ["Do you like seeing everything or hiding things away?", "هل تحب أن ترى كل شيء أمامك، أم تفضّل إخفاء الأشياء بعيدًا؟"], "q_q17": ["How do you organize your belongings?", "كيف ترتّب مقتنياتك؟"], "q_q18": ["Does visual clutter stress you?", "هل تسبّب لك الفوضى البصرية توترًا؟"], "q_q19": ["Do you prefer flexible spaces or defined spaces?", "هل تفضّل المساحات المرنة أم المساحات محدّدة الوظيفة؟"], "q_q20": ["Do you like knowing what happens in every room?", "هل تحب أن تعرف ما يحدث في كل غرفة؟"], "sec_order": ["Order & control", "النظام والتحكّم"], "q_q21": ["What makes a house feel stressful to you?", "ما الذي يجعل البيت مصدرًا للتوتر بالنسبة لك؟"], "q_q22": ["What makes a house feel peaceful?", "ما الذي يجعل البيت مكانًا هادئًا ومريحًا؟"], "q_q23": ["Do you need time alone daily?", "هل تحتاج إلى وقت بمفردك كل يوم؟"], "q_q24": ["Do unexpected guests stress you?", "هل يسبّب لك الضيوف غير المتوقَّعين توترًا؟"], "q_q25": ["What part of your home makes you proud?", "ما الجزء من بيتك الذي يُشعرك بالفخر؟"], "sec_emotional": ["Emotional environment", "البيئة العاطفية"], "q_q26": ["If your home were a character, who would it be?", "لو كان بيتك شخصية، فمن سيكون؟"], "q_q27": ["If your home were a movie, what genre would it be?", "لو كان بيتك فيلمًا، فما نوعه؟"], "q_q28": ["If you could remove one feeling from your home, what would it be?", "لو استطعت أن تُزيل شعورًا واحدًا من بيتك، فما هو؟"], "q_q29": ["If you could add one feeling, what would it be?", "لو استطعت أن تُضيف شعورًا واحدًا، فما هو؟"], "q_q30": ["How do you want to feel when you wake up?", "كيف تريد أن تشعر عندما تستيقظ؟"], "sec_future": ["Imagination & future", "الخيال والمستقبل"], "q_h1": ["What rooms are used by whom, and at what times of day?", "أي الغرف يستخدمها كل فرد، وفي أي أوقات اليوم؟"], "q_h2": ["How often do you entertain? Typical guest count and style of gathering?", "كم مرة تستقبلون الضيوف؟ وما العدد المعتاد وطبيعة التجمّع؟"], "q_h3": ["What everyday routines must the home support (work, prayer, hobbies, pets, children, staff)?", "ما العادات اليومية التي يجب أن يدعمها البيت (العمل، الصلاة، الهوايات، الحيوانات الأليفة، الأطفال، العاملون)؟"], "q_h4": ["What storage problems or physical accessibility needs should the new design solve?", "ما مشكلات التخزين أو احتياجات سهولة الحركة التي يجب أن يحلّها التصميم الجديد؟"], "q_h5": ["Which personal objects, artwork or heirlooms must be incorporated?", "ما المقتنيات الشخصية أو الأعمال الفنية أو القطع الموروثة التي يجب دمجها في التصميم؟"], "note_household_life": ["Complete together as a household; AHD can explore details in the follow-up interview.", "يُجاب عن هذا القسم معًا كأسرة، ويمكن لـ AHD التعمّق في التفاصيل خلال مقابلة المتابعة."], "sec_household_life": ["Household & everyday life", "الأسرة والحياة اليومية"], "a_0": ["Ground floor", "الدور الأرضي"], "a_1": ["First floor", "الدور الأول"], "a_2": ["Third level", "المستوى الثالث"], "a_3": ["Stairs / circulation", "السلالم / الحركة الداخلية"], "a_4": ["Landscape / outdoor areas", "تنسيق الحدائق / المساحات الخارجية"], "a_5": ["Flooring and wall finishes", "الأرضيات وتشطيبات الحوائط"], "a_6": ["Ceilings / lighting", "الأسقف / الإضاءة"], "a_7": ["Kitchen / bathrooms", "المطبخ / الحمّامات"], "a_8": ["Electrical / plumbing / gas", "الكهرباء / السباكة / الغاز"], "a_9": ["Heating / cooling / ventilation", "التدفئة / التبريد / التهوية"], "a_10": ["Doors / windows", "الأبواب / النوافذ"], "a_11": ["Built-in furniture / wardrobes", "الأثاث المدمج / الدواليب"], "l_Yes": ["Yes", "نعم"], "l_No": ["No", "لا"], "l_Undecided": ["Undecided", "لم نقرّر بعد"], "q_areas": ["Areas and works", "المساحات والأعمال"], "q_preserve": ["Areas to preserve or relocate, if any", "مساحات يُراد الحفاظ عليها أو نقلها، إن وُجدت"], "q_living": ["Are you living in the property during works?", "هل ستقيمون في العقار أثناء تنفيذ الأعمال؟"], "note_scope": ["This is a full strip-out renovation. Mark the areas and works expected to be replaced or changed; technical feasibility is subject to the appointed professionals.", "هذا تجديد شامل يشمل إزالة كل التشطيبات القائمة. حدّد المساحات والأعمال المتوقَّع استبدالها أو تغييرها، علمًا بأن الجدوى الفنية تخضع لتقييم المختصين المعيَّنين."], "sec_scope": ["Renovation scope", "نطاق التجديد"], "q_p1": ["Materials or colors you love and dislike", "خامات أو ألوان تحبها وأخرى لا تحبها"], "q_p2": ["Furniture to retain, refurbish, replace or commission from AHD", "أثاث تريد الاحتفاظ به أو تجديده أو استبداله أو تصميمه خصيصًا لدى AHD"], "q_p3": ["Preferred atmosphere for public spaces versus private spaces", "الأجواء المفضّلة للمساحات العامة مقارنةً بالمساحات الخاصة"], "q_p4": ["Art, collectibles, cultural references or travel influences to consider", "أعمال فنية أو مقتنيات أو مراجع ثقافية أو تأثيرات من الأسفار يجب أخذها في الاعتبار"], "q_p5": ["Design inspirations / photos / links you would like to share", "مصادر إلهام أو صور أو روابط تودّ مشاركتها"], "sec_prefs": ["Design & purchasing preferences", "تفضيلات التصميم والشراء"]};
+(function(){
+var f=document.getElementById('f'),KEY='ahdh_discovery_v1',LKEY='ahdh_lang';
+var ui='en',lang='en-US';            // ui: page language; lang: voice-recognition language
+function tr(k){var v=T[k];return v?v[ui==='ar'?1:0]:k}
+
+/* ---- language switch: translates the whole page and flips it right-to-left ---- */
+function setLang(code){ui=code;lang=code==='ar'?'ar-EG':'en-US';
+  document.documentElement.lang=code;document.documentElement.dir=code==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-t]').forEach(function(el){el.textContent=tr(el.dataset.t)});
+  document.title=tr('title');
+  document.querySelectorAll('.mic').forEach(function(b){b.setAttribute('aria-label',tr('micaria'))});
+  document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x.dataset.lang===lang)});
+  try{localStorage.setItem(LKEY,code)}catch(x){}
+  stop();count()}
+
+function count(){var groups=new Set(),done=new Set();f.querySelectorAll('textarea,input.l,input[type=checkbox],input[type=radio]').forEach(function(e){if(e.name==='website')return;groups.add(e.name);if((e.type==='checkbox'||e.type==='radio')?e.checked:e.value.trim())done.add(e.name)});
+  document.getElementById('pt').textContent=tr('progress').replace('{d}',done.size).replace('{n}',groups.size);document.getElementById('pb').style.width=(100*done.size/groups.size)+'%'}
+function collect(){var d={};[...f.elements].forEach(function(e){if(!e.name||e.name==='website')return;if(e.type==='checkbox'||e.type==='radio'){if(e.checked)(d[e.name]=d[e.name]||[]).push(e.value)}else d[e.name]=e.value});return d}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(collect()))}catch(x){}count()}
+try{var d=JSON.parse(localStorage.getItem(KEY)||'{}');[...f.elements].forEach(function(e){var v=d[e.name];if(v==null)return;if(e.type==='checkbox'||e.type==='radio')e.checked=v.indexOf(e.value)>=0;else if(e.tagName!=='BUTTON'&&e.type!=='hidden')e.value=v})}catch(x){}
+f.addEventListener('input',save);f.addEventListener('change',save);
+
+/* Question order + English wording, so the Google Sheet keeps the same columns whichever language the client used */
+function questions(){var seen={},list=[];f.querySelectorAll('.q').forEach(function(q){var inp=q.querySelector('[name]');if(!inp||seen[inp.name])return;seen[inp.name]=1;
+  var n=q.querySelector('.n').textContent.trim(),k=q.querySelector('label.t [data-t]').dataset.t;list.push([inp.name,(n?n+'. ':'')+T[k][0]])});
+  list.push(['form_language','Form language']);return list}
+
+var err=document.getElementById('err'),btn=document.getElementById('send');
+f.addEventListener('submit',function(ev){ev.preventDefault();var n=document.getElementById('client_name');
+  if(!n.value.trim()){n.focus();n.scrollIntoView({block:'center'});return}
+  stop();err.hidden=true;btn.disabled=true;btn.textContent=tr('sending');
+  var data=collect(),payload={website:f.website.value,questions:questions(),answers:{form_language:ui==='ar'?'Arabic':'English'}};
+  Object.keys(data).forEach(function(k){payload.answers[k]=Array.isArray(data[k])?data[k].join(', '):data[k]});
+  /* text/plain avoids a CORS preflight, which Apps Script does not answer */
+  fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+   .then(function(r){return r.json()})
+   .then(function(j){if(!j||!j.ok)throw new Error((j&&j.error)||'failed');
+     try{localStorage.removeItem(KEY)}catch(x){}document.body.classList.add('sent');window.scrollTo(0,0)})
+   .catch(function(){btn.disabled=false;btn.textContent=tr('send');err.hidden=false;err.textContent=tr('err')});
+});
+
+document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setLang(b.dataset.lang==='ar-EG'?'ar':'en')}});
+
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+var rec=null,cur=null,base='',finalTxt='';
+function stop(){if(rec){try{rec.stop()}catch(x){}}}
+
+/* start in the saved language, else the browser's language */
+var saved=null;try{saved=localStorage.getItem(LKEY)}catch(x){}
+setLang(saved||((navigator.language||'').slice(0,2)==='ar'?'ar':'en'));
+
+if(!SR){document.body.classList.add('nomic');return}
+function off(){if(cur){cur.btn.classList.remove('on');cur.btn.setAttribute('aria-pressed','false');cur.live.textContent='';cur=null}rec=null}
+document.querySelectorAll('.mic').forEach(function(btn){
+  var box=btn.parentNode.querySelector('textarea,input.l'),live=btn.parentNode.nextElementSibling;
+  btn.onclick=function(){var same=cur&&cur.btn===btn;stop();if(same)return;
+    rec=new SR();rec.lang=lang;rec.continuous=true;rec.interimResults=true;
+    base=box.value.replace(/\s+$/,'');finalTxt='';cur={btn:btn,box:box,live:live};
+    btn.classList.add('on');btn.setAttribute('aria-pressed','true');live.textContent=tr('listening');
+    rec.onresult=function(e){var interim='';for(var i=e.resultIndex;i<e.results.length;i++){var t=e.results[i][0].transcript;if(e.results[i].isFinal)finalTxt+=t+' ';else interim+=t}
+      box.value=(base?base+' ':'')+finalTxt.trim();live.textContent=interim?('… '+interim):'';save()};
+    rec.onerror=function(e){if(cur)cur.live.textContent=e.error==='not-allowed'?tr('micblocked'):(e.error==='no-speech'?tr('nospeech'):'');var c=cur;rec=null;if(c){c.btn.classList.remove('on');cur=null;setTimeout(function(){c.live.textContent=''},4000)}};
+    rec.onend=function(){if(rec)off()};
+    try{rec.start()}catch(x){off()}}});
+})();
+</script>
+</body></html>
